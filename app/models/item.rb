@@ -12,7 +12,7 @@
 
 class Item < ActiveRecord::Base
   attr_accessible :box_id, :name, :description
-  belongs_to :box
-  has_many :tags
+  belongs_to :box, :inverse_of => :items
+  has_many :tags, :inverse_of => :item
 
 end

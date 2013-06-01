@@ -14,6 +14,6 @@
 
 class Store < ActiveRecord::Base
   attr_accessible :name, :address, :industry, :email
-  has_many :boxes
+  has_many :boxes, :inverse_of => :store
 
 end

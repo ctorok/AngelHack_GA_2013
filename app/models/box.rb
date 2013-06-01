@@ -15,7 +15,7 @@
 
 class Box < ActiveRecord::Base
   attr_accessible :store_id, :name, :description, :frequency
-  belongs_to :store
-  has_many :items
-  has_many :subscriptions
+  belongs_to :store, :inverse_of => :boxes
+  has_many :items, :inverse_of => :box
+  has_many :subscriptions, :inverse_of => :box
 end

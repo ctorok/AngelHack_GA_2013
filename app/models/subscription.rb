@@ -12,7 +12,7 @@
 
 class Subscription < ActiveRecord::Base
   attr_accessible :box_id, :customer_id, :is_active
-  belongs_to :box
-  belongs_to :customer
+  belongs_to :box, :inverse_of => :subscriptions
+  belongs_to :customer, :inverse_of => :subscriptions
 
 end
