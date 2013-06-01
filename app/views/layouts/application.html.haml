@@ -8,7 +8,12 @@
     = csrf_meta_tags
   #nav
     = render :partial => 'layouts/nav'
+
   %body
+    %p{:class=>"notice"} 
+      = notice
+    %p{:class=>"alert"} 
+      = alert
     = render :partial => 'layouts/body'
 
 %script

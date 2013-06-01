@@ -5,6 +5,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
 gem 'bcrypt-ruby'
+gem 'devise'
 
 #gem 'carrierwave'
 #gem 'rmagick'

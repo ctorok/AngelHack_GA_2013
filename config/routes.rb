@@ -1,3 +1,7 @@
 Boxify::Application.routes.draw do
-  root :to => 'pages#index'
+  devise_for :users
+
+  get "home/index"
+
+  root :to => "home#index"
 end
