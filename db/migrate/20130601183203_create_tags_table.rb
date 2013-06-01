@@ -4,6 +4,6 @@ class CreateTagsTable < ActiveRecord::Migration
       t.integer :item_id
       t.string :name
       t.timestamps
+    end
   end
-end
 end

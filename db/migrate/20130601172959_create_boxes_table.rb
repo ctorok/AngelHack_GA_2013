@@ -1,7 +1,7 @@
 class CreateBoxesTable < ActiveRecord::Migration
   def change
     create_table :boxes do |t|
-      t.integer :store_id
+      t.integer :user_id
       t.string :name
       t.string :description
       t.string :frequency
@@ -10,6 +10,6 @@ class CreateBoxesTable < ActiveRecord::Migration
       t.string :img_lg
       t.string :img_sm
       t.timestamps
+    end
   end
-end
 end
