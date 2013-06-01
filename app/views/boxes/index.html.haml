@@ -1,0 +1,5 @@
+%h1 Boxes
+%ul
+  - @boxes.each do |box|
+    %li
+      = link_to(box.name, box)
