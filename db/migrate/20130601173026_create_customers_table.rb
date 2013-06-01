@@ -6,6 +6,7 @@ class CreateCustomersTable < ActiveRecord::Migration
       t.string :creditcard_id
       t.string :frequency
       t.string :password_digest
+      t.string :image
       t.timestamps
   end
 end

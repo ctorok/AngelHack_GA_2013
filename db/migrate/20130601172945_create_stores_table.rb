@@ -5,6 +5,7 @@ class CreateStoresTable < ActiveRecord::Migration
       t.string :address
       t.string :industry
       t.string :email
+      t.string :logo
       t.timestamps
   end
 end

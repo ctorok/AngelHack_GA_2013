@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20130601183203) do
     t.string   "description"
     t.string   "frequency"
     t.date     "ship_date"
+    t.decimal  "price"
+    t.string   "img_lg"
+    t.string   "img_sm"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "item_id"
@@ -30,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130601183203) do
     t.string   "creditcard_id"
     t.string   "frequency"
     t.string   "password_digest"
+    t.string   "image"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -47,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130601183203) do
     t.string   "address"
     t.string   "industry"
     t.string   "email"
+    t.string   "logo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "box_id"
