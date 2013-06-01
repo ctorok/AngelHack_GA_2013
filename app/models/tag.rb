@@ -11,6 +11,6 @@
 
 class Tag < ActiveRecord::Base
   attr_accessible :name
-  belongs_to :item
+  belongs_to :item, :inverse_of => tags
 
 end

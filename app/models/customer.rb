@@ -17,6 +17,6 @@ class Customer < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :address, :creditcard_id, :frequency, :password, :password_confirmation, :image
 
-  has_many :subscriptions
+  has_many :subscriptions, :inverse_of => :customer
 
 end
