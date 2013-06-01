@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "",
+  "sourceRoot": "",
+  "sources": [
+    "/assets/source_maps/app/assets/javascripts/boxify.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,KAAA;;CAAA,CAAM;CACJ;;CAAA,EAAiB,CAAjB,EAAC,GAAgB,KAAjB;;CAAA;;CADF;;CAAA,CAGA,CAAgB,GAAV;;CAHN,CAKA,GAAA,CAAwB,EAAxB,MAAA;CALA"
+}
