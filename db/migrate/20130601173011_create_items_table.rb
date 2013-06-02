@@ -4,6 +4,7 @@ class CreateItemsTable < ActiveRecord::Migration
       t.integer :shipment_id
       t.string :name
       t.string :description
+      t.string :img
       t.timestamps
     end
   end

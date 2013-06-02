@@ -20,3 +20,4 @@
 //= require masonry/modernizr-transitions
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
+//= require masonry_init
