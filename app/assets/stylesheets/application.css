@@ -6,4 +6,11 @@
  *= require morris.min
  *= require ui-lightness/jquery-ui-1.10.2.custom.min
  *= require 'boxify.css'
+ *= require 'masonry/basic'
+*= require 'masonry/centered'
+*= require 'masonry/fluid'
+*= require 'masonry/gutters'
+*= require 'masonry/infinitescroll'
+*= require 'masonry/right-to-left'
+*= require 'masonry/transitions'
  */
