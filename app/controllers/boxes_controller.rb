@@ -45,11 +45,11 @@ class BoxesController < ApplicationController
     rescue Stripe::CardError => @error
     end
 
-    if @error.nil?
-      #Notifications.purchased_product(@auth, product).deliver
-      result = Result.create(:user_id => current_user.id, :box_id => box.id)
-      box.purchase(current_user)
-    end
+    # if @error.nil?
+    #   #Notifications.purchased_product(@auth, product).deliver
+    #   # result = Result.create(:user_id => current_user.id, :box_id => box.id)
+    #   box.purchase(current_user)
+    # end
 
     @boxes = Box.all
   end

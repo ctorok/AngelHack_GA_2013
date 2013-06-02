@@ -12,6 +12,7 @@ u3 = User.create(email: 'user3@user3.com', password: '12345678', password_confir
 b1 = Box.create(name: 'Box1', description: 'Box1', frequency: 'weekly', ship_date: '2013-02-02', price: 20)
 b2 = Box.create(name: 'Box2', description: 'Box2', frequency: 'biweekly', ship_date: '2013-02-03', price: 10)
 b3 = Box.create(name: 'Box3', description: 'Box3', frequency: 'monthly', ship_date: '2013-02-03', price: 10)
+b4 = Box.create(name: 'Box4', description: 'Box4', frequency: 'monthly', ship_date: '2013-02-03', price: 40)
 
 i1 = Item.create(name: 'Shoes', description: 'cool shoes')
 i2 = Item.create(name: 'Sandals', description: 'cool sandals')
@@ -22,7 +23,7 @@ t3 = Tag.create(name: 'sandals')
 
 u1.boxes << b1
 u2.boxes << b2
-u3.boxes << b3
+u3.boxes << b3 << b4
 
 s1 = Subscription.create(user_id: u1.id, box_id: b2.id)
 
