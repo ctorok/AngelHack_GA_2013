@@ -1,6 +1,7 @@
 %html
   %head
     / %meta{:name => "viewport", :content=>"width=device-width, initial-scale=1.0"}
+    %script{:src => "/path/to/jquery.masonry.min.js"}
     %title BOXIFY
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
@@ -15,38 +16,15 @@
       = alert
     = render :partial => 'layouts/body'
 
-    %h3 Trending boxes
 
     #masonry-container.transitions-enabled.infinite-scroll.clearfix
       .box.col3
-        .box.col1
-          %p Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-        .box.col2
-          %p
-            %a{:href => "http://www.flickr.com/photos/nemoorange/3319714470/", :title => "Whitlow's on Wilson by nemoorange, on Flickr"}
-              %img{:alt => "Whitlow's on Wilson", :src => "http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg"}
-      .box.col3
-        .box.col1
-          %p Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-        .box.col2
-          %p
-            %a{:href => "http://www.flickr.com/photos/nemoorange/3319714470/", :title => "Whitlow's on Wilson by nemoorange, on Flickr"}
-              %img{:alt => "Whitlow's on Wilson", :src => "http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg"}
-      .box.col3
-        .box.col1
-          %p Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-        .box.col2
-          %p
-            %a{:href => "http://www.flickr.com/photos/nemoorange/3319714470/", :title => "Whitlow's on Wilson by nemoorange, on Flickr"}
-        %img{:alt => "Whitlow's on Wilson", :src => "http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg"}/
-      .box.col3
-        .box.col1
-          %p Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
-        .box.col2
-          %p
-            %a{:href => "http://www.flickr.com/photos/nemoorange/3319714470/", :title => "Whitlow's on Wilson by nemoorange, on Flickr"}
-        %img{:alt => "Whitlow's on Wilson", :src => "http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg"}
 
+        %p Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+      .box.col2
+        %p
+          %a{:href => "http://www.flickr.com/photos/nemoorange/3319714470/", :title => "Whitlow's on Wilson by nemoorange, on Flickr"}
+            %img{:alt => "Whitlow's on Wilson", :src => "http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg"}
 
 
 
@@ -55,6 +33,8 @@
 
 
 
-%script
-  $(document).foundation();
-  $(document).foundationTopBar();
+
+  %script
+    $(document).foundation();
+    $(document).foundationTopBar();
+
