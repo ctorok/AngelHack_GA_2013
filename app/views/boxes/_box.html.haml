@@ -1,28 +1,38 @@
-%table
-  %tr
-    %th Box Name
-    %th Box Creator
-    %th Price
-    %th Subscribed
-    %th Next Shipping Date
-    %tr
-      %td= link_to(@box.name, @box)
-      %td= @box.user.email
-      %td= @box.price
-      %td
-        - if !@box.is_owner?(current_user)
-          - if !@box.is_subscribed?(current_user)
-            - if !current_user.cc_id.present?
-              = render(:partial => 'boxes/anonymous', :locals => {:box => @box})
-              / = link_to 'subscribe', new_subscription_path(box)
-            - else
-              = render(:partial => 'boxes/customer', :locals => {:box => @box})
-          - else
-            = link_to 'unsubscribe', edit_subscription_path(box), :class => 'button small alert'
-      %td= @box.ship_date
+.row
+  .columns.large-12
+    %table
+      %tr
+        %th Box Name
+        %th Box Creator
+        %th Price
+        %th Subscribed
+        %th Next Shipping Date
+        %tr
+          %td= link_to(@box.name, @box)
+          %td= @box.user.email
+          %td= @box.price
+          %td
+            - if !@box.is_owner?(current_user)
+              - if !@box.is_subscribed?(current_user)
+                - if !current_user.cc_id.present?
+                  = render(:partial => 'boxes/anonymous', :locals => {:box => @box})
+                  / = link_to 'subscribe', new_subscription_path(box)
+                - else
+                  = render(:partial => 'boxes/customer', :locals => {:box => @box})
+              - else
+                = link_to 'unsubscribe', edit_subscription_path(box), :class => 'button small alert'
+          %td= @box.ship_date
 
-%h1 Latest Shipment
-#current_shipment
-  = render(:partial => 'shipments/shipment', :locals => {:shipment => {@shipment => @box.current_shipment}})
-#last_shipment
-  = render(:partial => 'shipments/shipment', :locals => {:shipment => {@shipment => @box.last_shipment_sent}})
+%h1 Items
+#items
+  .row
+    .columns.large-12
+      #masonry-container.transitions-enabled.infinite-scroll.clearfix
+        #items_index
+          - Shipment.last.items.each do |item|
+            .box
+              .box-image= image_tag(item.img, :width => '100')
+              / = raise 'foo'
+              = item.name
+              = item.description
+

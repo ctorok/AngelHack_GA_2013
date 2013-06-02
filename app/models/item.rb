@@ -11,7 +11,7 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :box_id, :name, :description
+  attr_accessible :box_id, :name, :description, :img
   belongs_to :shipment, :inverse_of => :items
   has_many :tags, :inverse_of => :item
 end

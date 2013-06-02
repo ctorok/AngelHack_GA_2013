@@ -5,7 +5,12 @@ Boxify::Application.routes.draw do
 
   #match 'auth/:provider/callback', to: 'sessions#create'
 
+  authenticated :user do
+    root :to => "boxes#index"
+  end
+
   root :to => "home#index"
+
 
   resources :boxes do
     member do
