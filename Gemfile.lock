@@ -121,7 +121,7 @@ GEM
       railties
     method_source (0.8.1)
     mime-types (1.23)
-    multi_json (1.7.4)
+    multi_json (1.7.5)
     multipart-post (1.2.0)
     nokogiri (1.5.9)
     oauth (0.4.7)
