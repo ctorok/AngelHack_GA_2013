@@ -3,5 +3,8 @@
 	- @boxes.each do |box|
 		%li
 			= link_to(box.name, box)
-			- if !box.is_subscribed?(current_user) 
-				= link_to 'subscribe', new_subscription_path(box)
+			- if !box.is_owner?(current_user)
+				- if !box.is_subscribed?(current_user) 
+					= link_to 'subscribe', new_subscription_path(box)
+				-	else
+					= link_to 'unsubscribe', edit_subscription_path(box)

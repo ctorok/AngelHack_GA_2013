@@ -24,4 +24,8 @@ class Box < ActiveRecord::Base
   def is_subscribed?(user)
 	  user.id.in?(self.subscriptions.map(&:user_id))
   end
+
+  def is_owner?(user)
+  	user == self.user
+  end
 end

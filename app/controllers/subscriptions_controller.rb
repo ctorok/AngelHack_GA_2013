@@ -15,6 +15,9 @@ class SubscriptionsController < ApplicationController
     subscription = Subscription.create
     subscription.user = current_user
     subscription.box = Box.find(params[:box_id])
+
+    # 
+
     subscription.save
     redirect_to subscription
   end
