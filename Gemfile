@@ -9,6 +9,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'stripe'
+
 #gem 'carrierwave'
 #gem 'rmagick'
 #gem 'fog'

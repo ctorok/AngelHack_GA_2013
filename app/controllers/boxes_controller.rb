@@ -28,4 +28,29 @@ class BoxesController < ApplicationController
   end
   def destroy
   end
+  def purchase
+    box = Box.find(params[:id])
+
+    begin
+      if current_user.cc_id.nil?
+        customer = Stripe::Customer.create(email: current_user.email, card: params[:token])
+        current_user.cc_id = customer.id
+        current_user.save
+      end
+      Stripe::Charge.create(customer: current_user.cc_id, amount: (box.price * 100).to_i, description: box.name, currency: 'usd')
+      subscription = Subscription.create
+      subscription.box = box
+      subscription.user = current_user
+      subscription.save
+    rescue Stripe::CardError => @error
+    end
+
+    if @error.nil?
+      #Notifications.purchased_product(@auth, product).deliver
+      result = Result.create(:user_id => current_user.id, :box_id => box.id)
+      box.purchase(current_user)
+    end
+
+    @boxes = Box.all
+  end
 end
