@@ -1,0 +1,12 @@
+= form_for @subscription do |f|
+  = hidden_field_tag :box_id, @box.id
+  %h3= @box.name
+
+
+  = if @subscription.user.present?
+    = f.label 'Status'
+    = radio_button_tag :is_active?, true, checked = true
+    = label_tag 'Subscribe'
+    = radio_button_tag :is_active?, false
+    = label_tag 'Unsubscribe'
+  = f.submit 'Save'
