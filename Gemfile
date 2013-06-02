@@ -9,8 +9,11 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'twitter'
-gem 'fb_graph'
+
+
+gem 'stripe'
+
+
 #gem 'carrierwave'
 #gem 'rmagick'
 #gem 'fog'

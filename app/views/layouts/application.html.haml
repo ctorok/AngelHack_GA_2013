@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %meta{:name => "viewport", :content=>"width=device-width, initial-scale=1.0"}
+    / %meta{:name => "viewport", :content=>"width=device-width, initial-scale=1.0"}
     %title BOXIFY
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
@@ -10,11 +10,17 @@
     = render :partial => 'layouts/nav'
 
   %body
-    %p{:class=>"notice"} 
+    %p{:class=>"notice"}
       = notice
-    %p{:class=>"alert"} 
+    %p{:class=>"alert"}
       = alert
     = render :partial => 'layouts/body'
 
+    #footer
+      = render :partial => 'layouts/footer'
+
+
+
 %script
   $(document).foundation();
+  $(document).foundationTopBar();

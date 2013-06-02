@@ -6,9 +6,16 @@ Tag.delete_all
 
 u1 = User.create(email: 'user1@user1.com', password: '12345678', password_confirmation: '12345678')
 u2 = User.create(email: 'user2@user2.com', password: '12345678', password_confirmation: '12345678')
+u3 = User.create(email: 'user3@user3.com', password: '12345678', password_confirmation: '12345678')
 
-b1 = Box.create(name: 'Box1', description: 'Box1', frequency: 'weekly', ship_date: '2013-02-02')
-b2 = Box.create(name: 'Box2', description: 'Box2', frequency: 'weekly', ship_date: '2013-02-03')
+
+b1 = Box.create(name: 'Box1', description: 'Box1', frequency: 'weekly', ship_date: '2013-02-02', price: 20)
+b2 = Box.create(name: 'Box2', description: 'Box2', frequency: 'biweekly', ship_date: '2013-02-03', price: 10)
+b3 = Box.create(name: 'Box3', description: 'Box3', frequency: 'monthly', ship_date: '2013-02-03', price: 10)
+b4 = Box.create(name: 'Box4', description: 'Box4', frequency: 'monthly', ship_date: '2013-02-03', price: 40)
+
+sh1 = Shipment.create(ship_date: '2013-05-15')
+sh2 = Shipment.create(ship_date: '2013-06-15')
 
 i1 = Item.create(name: 'Shoes', description: 'cool shoes')
 i2 = Item.create(name: 'Sandals', description: 'cool sandals')
@@ -19,9 +26,11 @@ t3 = Tag.create(name: 'sandals')
 
 u1.boxes << b1
 u2.boxes << b2
+u3.boxes << b3 << b4
 
 s1 = Subscription.create(user_id: u1.id, box_id: b2.id)
 
-b1.items << i1 << i2
+sh1.items << i1 << i2
+b1.shipments << sh1 << sh2
 i1.tags << t1 << t2
 i2.tags << t1 << t3

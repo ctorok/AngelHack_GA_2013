@@ -19,6 +19,8 @@
 #  address                :string(255)
 #  logo                   :string(255)
 #  cc_id                  :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -31,7 +33,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :name, :address, :logo, :cc_id, :provider, :uid
+                  :name, :address, :logo, :cc_id, :provider, :uid, :omniauthable, 
+                  :omniauth_providers => [:twitter, :facebook]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :address, :logo, :cc_id, :provider, :uid, :username
+
   # attr_accessible :title, :body
 
   has_many :boxes, :inverse_of => :user
@@ -58,29 +65,28 @@ class User < ActiveRecord::Base
     end
   end
 
-  # twitter omniauth:
+  # twitter auth
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.nickname
+    end
+  end
 
-  # def self.from_omniauth(auth)
-  #   where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
-  # end
-  
-  # def self.create_from_omniauth(auth)
-  #   create! do |user|
-  #     user.provider = auth["provider"]
-  #     user.uid = auth["uid"]
-  #     user.name = auth["info"]["nickname"]
-  #   end
-  # end
-
-  def apply_omniauth(omni)
-    authentications.build(:provider => omni['provider'],
-      :uid => omni['uid'],
-      :token => omni['credentials'].token,
-      :token_secret => omni['credentials'].secret)
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end    
   end
 
   def password_required?
-    (authentications.empty? || !password.blank?) && super
+    super && provider.blank?
   end
 
   def update_with_password(params, *options)
@@ -90,4 +96,5 @@ class User < ActiveRecord::Base
       super
     end
   end
+
 end

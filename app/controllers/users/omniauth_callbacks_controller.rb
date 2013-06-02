@@ -13,42 +13,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def twitter
-    #@user = User.from_omniauth(request.env["omniauth.auth"])
-
-    omni = request.env["omniauth.auth"]
-    authentication = User.find_by_provider_and_uid(omni['provider'], omni['uid'])
-    
-    if authentication
-      flash[:notice] = "Logged in Successfully"
-      sign_in_and_redirect User.find(authentication.user_id)
-    elseif current_user
-      token = omni['credentials'].token
-      token_secret = omni['credentials'].secret
- 
-      current_user.authentications.create!(:provider => omni['provider'], :uid => omni['uid'], :token => token, :token_secret => token_secret)
-      flash[:notice] = "Authentication successful."
-      sign_in_and_redirect current_user
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    if user.persisted?
+      flash.notice = "Signed in!"
+      sign_in_and_redirect user
     else
-      user = User.new
-      user.apply_omniauth(omni)
-     
-      if user.save
-        flash[:notice] = "Logged in."
-        sign_in_and_redirect User.find(user.id)
-      else
-        session[:omniauth] = omni.except('extra')
-        redirect_to new_user_registration_path
-      end
-
-      session[:omniauth] = omni.except('extra')
-    end  
-
-    # if @user.persisted?
-    #   sign_in_and_redirect @user, :event => authentication
-    #   set_flash_message(:notice, :success) if is_navigational_format?
-    # else
-    #   session[:user_id] = user.id
-    #   redirect_to new_user_registration_url
-    # end
+      session["devise.user_attributes"] = user.attributes
+      redirect_to new_user_registration_url
+    end
   end
 end
