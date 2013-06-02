@@ -28,4 +28,16 @@ class Box < ActiveRecord::Base
   def is_owner?(user)
   	user == self.user
   end
+
+  def current_shipment
+    if self.shipments.where(:has_shipped => false).last.present?
+      self.shipments.where(:has_shipped => false).last
+    end
+  end
+
+  def last_shipment_sent
+    if self.shipments.where(:has_shipped => true).order(:created_at).reverse.last.present?
+      self.shipments.where(:has_shipped => true).order(:created_at).reverse.last
+    end
+  end
 end

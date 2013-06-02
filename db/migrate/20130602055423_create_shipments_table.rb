@@ -3,7 +3,8 @@ class CreateShipmentsTable < ActiveRecord::Migration
     create_table :shipments do |t|
       t.integer :box_id
       t.string :name
-      t.string :ship_date
+      t.date :ship_date
+      t.boolean :has_shipped
       t.timestamps
     end
   end

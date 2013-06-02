@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(:version => 20130602055423) do
   create_table "shipments", :force => true do |t|
     t.integer  "box_id"
     t.string   "name"
-    t.string   "ship_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.date     "ship_date"
+    t.boolean  "has_shipped"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "subscriptions", :force => true do |t|

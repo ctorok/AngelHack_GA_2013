@@ -14,8 +14,8 @@ b2 = Box.create(name: 'Box2', description: 'Box2', frequency: 'biweekly', ship_d
 b3 = Box.create(name: 'Box3', description: 'Box3', frequency: 'monthly', ship_date: '2013-02-03', price: 10)
 b4 = Box.create(name: 'Box4', description: 'Box4', frequency: 'monthly', ship_date: '2013-02-03', price: 40)
 
-sh1 = Shipment.create
-sh2 = Shipment.create
+sh1 = Shipment.create(ship_date: '2013-05-15')
+sh2 = Shipment.create(ship_date: '2013-06-15')
 
 i1 = Item.create(name: 'Shoes', description: 'cool shoes')
 i2 = Item.create(name: 'Sandals', description: 'cool sandals')
@@ -31,6 +31,6 @@ u3.boxes << b3 << b4
 s1 = Subscription.create(user_id: u1.id, box_id: b2.id)
 
 sh1.items << i1 << i2
-b1.shipments << sh1
+b1.shipments << sh1 << sh2
 i1.tags << t1 << t2
 i2.tags << t1 << t3

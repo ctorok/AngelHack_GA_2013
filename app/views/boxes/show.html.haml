@@ -1,3 +1,1 @@
-= @box.name
-= @box.user.email
-= link_to 'subscribe', new_subscription_path(@box)
+= render(:partial => 'boxes/box', :locals => {:box => @box})
