@@ -1,45 +1,72 @@
-
-body {
-  margin: 0 auto;
-  background: rgba(99,62,21,.35)
+/* BEGIN Sandip's CSS */
+.orbit-image-size
+{
+  width:100%;
 }
 
-// Jamals code
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, p
+{
   font-family: Avenir, Helvetica;
-
 }
 
-#bg-image { background-image:url("/vendor/assets/images/image1.png"); }
+// Cats code
+/* */
+.top-bar-section ul {
+  background: brown;
+}
+.button {
+ background: #39B54A;
+}
 
-#home-box {
-  background-color: #58595B;
-  width: 350px;
+.button:hover {
+  background: black
+}
+
+#bg-image
+{
+  background-image:url("/vendor/assets/images/image1.png");
+}
+
+#home-box
+{
+  // background-color: #58595B;
+  background: brown;
+  width: 550px;
   border: 5px;
-  color: white;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   padding-top: 10px;
   padding-top: 10px;
+  border-radius: 3px;
+
 }
 
-#footer {
+#home-box h4 {
+    color: rgba(255, 255, 255, .8)
+}
+
+
+.small-3-columns label {
+margin-left: 10px;
+color:  rgba(255, 255, 255, .8)
+}
+
+// Cats code END
+/* */
+
+#footer
+{
   background-color: #58595B;
   color: #ffffff;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.center {
+.center
+{
   text-align: center;
 }
-
-
-/* BEGIN Sandip's CSS */
-.orbit-image-size
-{
-  width:100%;
-}
 /* END Sandip's CSS */
-
