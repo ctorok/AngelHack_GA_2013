@@ -27,10 +27,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :address, :logo, :cc_id, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+                  :name, :address, :logo, :cc_id, :provider, :uid
   # attr_accessible :title, :body
 
   has_many :boxes, :inverse_of => :user
@@ -57,4 +58,36 @@ class User < ActiveRecord::Base
     end
   end
 
+  # twitter omniauth:
+
+  # def self.from_omniauth(auth)
+  #   where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  # end
+  
+  # def self.create_from_omniauth(auth)
+  #   create! do |user|
+  #     user.provider = auth["provider"]
+  #     user.uid = auth["uid"]
+  #     user.name = auth["info"]["nickname"]
+  #   end
+  # end
+
+  def apply_omniauth(omni)
+    authentications.build(:provider => omni['provider'],
+      :uid => omni['uid'],
+      :token => omni['credentials'].token,
+      :token_secret => omni['credentials'].secret)
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
 end
