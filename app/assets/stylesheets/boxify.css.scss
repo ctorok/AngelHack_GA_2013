@@ -47,3 +47,26 @@ h1, h2, h3, h4, h5, p
   text-align: center;
 }
 /* END Sandip's CSS */
+
+
+/* Boxes Index */
+
+// .boxed {
+//   border:  1px solid blue;
+//   padding: 25px;
+// }
+
+#boxes li
+{
+  list-style-type: none;
+  text-decoration:none;
+  border: 1px solid black;
+  width: 250px;
+  float: left;
+  padding: 10px;
+  margin: 5px;
+}
+
+
+
+
