@@ -5,6 +5,10 @@ Boxify::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :boxes
+  resources :boxes do
+    member do
+      post 'purchase'
+    end
+  end
   resources :subscriptions
 end

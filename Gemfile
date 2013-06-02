@@ -7,6 +7,8 @@ gem 'haml'
 gem 'bcrypt-ruby'
 gem 'devise'
 
+gem 'stripe'
+
 #gem 'carrierwave'
 #gem 'rmagick'
 #gem 'fog'
