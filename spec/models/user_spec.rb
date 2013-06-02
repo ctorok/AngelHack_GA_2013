@@ -19,6 +19,8 @@
 #  address                :string(255)
 #  logo                   :string(255)
 #  cc_id                  :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 require 'spec_helper'

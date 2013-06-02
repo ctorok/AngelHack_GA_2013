@@ -18,7 +18,7 @@
 class Box < ActiveRecord::Base
   attr_accessible :user_id, :name, :description, :ship_date, :frequency, :price, :img_lg, :img_sm
   belongs_to :user, :inverse_of => :boxes
-  has_many :items, :inverse_of => :box
+  has_many :shipments, :inverse_of => :box
   has_many :subscriptions, :inverse_of => :box
 
   def is_subscribed?(user)
