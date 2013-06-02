@@ -20,4 +20,8 @@ class Box < ActiveRecord::Base
   belongs_to :user, :inverse_of => :boxes
   has_many :items, :inverse_of => :box
   has_many :subscriptions, :inverse_of => :box
+
+  def is_subscribed?(user)
+	  user.id.in?(self.subscriptions.map(&:user_id))
+  end
 end

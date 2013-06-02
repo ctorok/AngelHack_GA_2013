@@ -1,5 +1,7 @@
 %h1 Boxes
 %ul
-  - @boxes.each do |box|
-    %li
-      = link_to(box.name, box)
+	- @boxes.each do |box|
+		%li
+			= link_to(box.name, box)
+			- if !box.is_subscribed?(current_user) 
+				= link_to 'subscribe', new_subscription_path(box)
