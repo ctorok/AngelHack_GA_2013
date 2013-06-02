@@ -29,10 +29,16 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
-         :omniauthable, :omniauth_providers => [:twitter, :facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :twitter]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+                  :name, :address, :logo, :cc_id, :provider, :uid, :omniauthable, 
+                  :omniauth_providers => [:twitter, :facebook]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :address, :logo, :cc_id, :provider, :uid, :username
+
   # attr_accessible :title, :body
 
   has_many :boxes, :inverse_of => :user
@@ -90,6 +96,5 @@ class User < ActiveRecord::Base
       super
     end
   end
-
 
 end
