@@ -10,7 +10,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+
 gem 'stripe'
+
 
 #gem 'carrierwave'
 #gem 'rmagick'
