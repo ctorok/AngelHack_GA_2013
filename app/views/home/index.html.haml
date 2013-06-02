@@ -1,16 +1,11 @@
-%h1
-  Home
-.row
-  .columns.large-4
-  .columns.large-4
-    %ul{:'data-orbit'=>''}
-      %li
-        = image_tag("image1.png")
-        %div{:class=>"orbit-caption"}
-      %li
-        = image_tag("image2.png")
-        %div{:class=>"orbit-caption"}
-      %li
-        = image_tag("image3.png")
-        %div{:class=>"orbit-caption"}
-  .columns.large-4
+.container
+  %ul{:'data-orbit'=>''}
+    %li
+      = image_tag("image1.png", :class => 'orbit-image-size')
+      %div{:class=>"orbit-caption"}
+    %li
+      = image_tag("image2.png", :class => 'orbit-image-size')
+      %div{:class=>"orbit-caption"}
+    %li
+      = image_tag("image3.png", :class => 'orbit-image-size')
+      %div{:class=>"orbit-caption"}
