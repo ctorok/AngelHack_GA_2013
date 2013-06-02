@@ -10,11 +10,16 @@
     = render :partial => 'layouts/nav'
 
   %body
-    %p{:class=>"notice"} 
+    %p{:class=>"notice"}
       = notice
-    %p{:class=>"alert"} 
+    %p{:class=>"alert"}
       = alert
     = render :partial => 'layouts/body'
+
+    #footer
+      = render :partial => 'layouts/footer'
+
+
 
 %script
   $(document).foundation();
