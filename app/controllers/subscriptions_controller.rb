@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
     subscription.user = current_user
     subscription.box = Box.find(params[:box_id])
 
-    # 
+    # stripe
 
     subscription.save
     redirect_to subscription

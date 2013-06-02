@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'bcrypt-ruby'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 #gem 'carrierwave'
 #gem 'rmagick'
