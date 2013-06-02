@@ -1,1 +1,48 @@
 /* This will contain global css for your application */
+@import url("http://fonts.googleapis.com/css?family=Doppio+One");
+
+body {
+  margin: 0 auto;
+  font-family: "Doppio One", sans-serif;
+  background: rgba(99,62,21,.35)
+}
+
+h1 {
+  color: brown;
+  // had to add the below line - body was not taking care of it
+  font-family: "Doppio One", sans-serif;
+}
+
+
+
+// footer
+
+#footer {
+  clear: both;
+  padding-top: 2em;
+  padding-left: .5em;
+  font-size: 14px
+}
+
+#footer p {
+  margin: 0% 0 0% 0;
+  font-size: 80%;
+  padding-right: 2em;
+}
+
+
+
+#footer p.title {
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  border-top: 1px solid #6b2216;
+}
+
+#footer p.title span {
+
+  position: relative;
+  top: -10px;
+  padding: 0 20px;
+}
+
