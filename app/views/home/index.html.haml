@@ -9,3 +9,23 @@
     %li
       = image_tag("image3.png", :class => 'orbit-image-size')
       %div{:class=>"orbit-caption"}
+
+#home-box
+  %h4{:class => 'center'} CLAIM YOUR BOX TODAY!
+
+.sign-up-border
+  = form_tag new_user_session_path do
+    %p
+      .row
+        .small-3-columns
+          = text_field_tag :email, params[:email]
+        .small-3-columns
+          = text_field_tag :password, params[:password]
+        .small-3-columns
+          = text_field_tag :password_confirmation, params[:password_confirmation]
+        .small-3-columns
+          = submit_tag 'Sign Up!', :name => nil, :class => 'button'
+
+%h3{:class=>'center'} These items are in boxes assembled just for you
+
+= link_to "Get Started", new_user_session_path, :class => "button"
